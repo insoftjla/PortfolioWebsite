@@ -9,6 +9,9 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author Sergey Inyakin
@@ -57,6 +60,22 @@ public class User extends BaseEntity{
 
     @NotBlank(message = "Website may not be blank")
     private String website;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "user_skill",
+    joinColumns = @JoinColumn(name = "user_id"),
+    inverseJoinColumns = @JoinColumn(name = "skill_id"))
+    private Set<Skill> skills = new HashSet<>();
+
+    public void addSkill(Skill skill){
+        skills.add(skill);
+        skill.getUsers().add(this);
+    }
+
+    public void removeSkill(Skill skill){
+        skills.remove(skill);
+        skill.getUsers().remove(this);
+    }
 
     public int getAge(){
         LocalDate birthDate = birthday.toInstant()

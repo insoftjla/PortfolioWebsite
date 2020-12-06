@@ -3,31 +3,31 @@
 
 <body>
 <!-- start banner Area -->
-<section th:fragment="banner" class="home-banner-area relative" id="home" data-parallax="scroll" data-image-src="img/header-bg.jpg">
+<section th:fragment="banner" class="home-banner-area relative" id="home" data-parallax="scroll"
+         data-image-src="img/header-bg.jpg">
     <div class="overlay-bg overlay"></div>
     <h1 class="background-text">Sergey</h1>
     <div class="container">
         <div class="row fullscreen">
             <div class="banner-content col-lg-12">
                 <p th:text="${user.getProfession()}">Profession</p>
-                <h1 th:text="${user.getFirstname()} + ' ' + ${user.getLastname()}">
-                    Future <br>
-                    Architechure
+                <h1 th:text="|${user.getFirstname()} ${user.getLastname()}|">
+                    Firstname Lastname
                 </h1>
                 <p>
-                    <span>Возраст: </span><span th:text="${user.getAge()}"></span>
-                    <span>Email: </span><span th:text="${user.getEmail()}"></span>
-                    <span>Website: </span><span th:text="${user.getWebsite()}"></span>
+                   <span class="p-1 mr-3 bg-light text-dark"
+                         th:each="skill : ${user.getSkills()}"
+                         th:text="${skill.getTitle()}">
+                   </span>
                 </p>
-<!--                <a href="#" class="primary-btn">View project</a>-->
             </div>
         </div>
     </div>
     <div class="head-bottom-meta">
         <div class="d-flex meta-left no-padding">
-            <a href="#"><span class="fa fa-facebook-f"></span></a>
-            <a href="#"><span class="fa fa-twitter"></span></a>
-            <a href="#"><span class="fa fa-instagram"></span></a>
+            <a href="#"><span class="fa fa-telegram"></span></a>
+            <a href="#"><span class="fa fa-vk"></span></a>
+            <a href="#"><span class="fa fa-github"></span></a>
         </div>
     </div>
 </section>
