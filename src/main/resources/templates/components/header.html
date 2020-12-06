@@ -3,10 +3,11 @@
 
 <body>
 <!-- Start Header Area -->
+<!--/*@thymesVar id="user" type="sd.app.model.User"*/-->
 <header th:fragment="header" class="default-header">
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="/">
                 <h2 class="text-light" th:text="${user.getFirstname()} + ' ' + ${user.getLastname()}" >Firstname Lastname</h2>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
