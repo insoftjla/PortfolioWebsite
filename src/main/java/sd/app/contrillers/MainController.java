@@ -12,13 +12,13 @@ import sd.app.sevices.UserService;
 
 @Controller
 @AllArgsConstructor
-public class AboutController {
+public class MainController {
 
     private final UserService userService;
 
     @GetMapping("/")
     public String about(Model model) {
         model.addAttribute("user", userService.get(1));
-        return "about";
+        return "index";
     }
 }

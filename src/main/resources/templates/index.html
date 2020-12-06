@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sergey Inyakin</title>
-</head>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="components/head :: head"></head>
+
 <body>
-Hello world!
+
+<div th:replace="components/header :: header"></div>
+<div th:replace="components/banner :: banner"></div>
+<div th:replace="components/features :: features"></div>
+<div th:replace="components/about :: about"></div>
+<div th:replace="components/projects :: projects"></div>
+
+<!--<p th:text="${user.getAge()} + ' ' + ${user.getLastname()}">Hello world!</p>-->
 </body>
 </html>

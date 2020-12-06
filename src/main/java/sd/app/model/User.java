@@ -2,12 +2,13 @@ package sd.app.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
+import java.util.Date;
 
 /**
  * @author Sergey Inyakin
@@ -42,12 +43,26 @@ public class User extends BaseEntity{
 
     private String patronymic;
 
-    @NotBlank(message = "Age may not be blank")
-    private String age;
+    @NotBlank(message = "Birthday may not be blank")
+    private Date birthday;
 
     @Enumerated(EnumType.STRING)
     private Sex sex = Sex.MALE;
 
     @NotBlank(message = "Phone may not be blank")
     private String phone;
+
+    @NotBlank(message = "Profession may not be blank")
+    private String profession;
+
+    @NotBlank(message = "Website may not be blank")
+    private String website;
+
+    public int getAge(){
+        LocalDate birthDate = birthday.toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate();
+        LocalDate nowDate = LocalDate.now();
+        return Period.between(birthDate, nowDate).getYears();
+    }
 }

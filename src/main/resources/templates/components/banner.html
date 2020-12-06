@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<!-- start banner Area -->
+<section th:fragment="banner" class="home-banner-area relative" id="home" data-parallax="scroll" data-image-src="img/header-bg.jpg">
+    <div class="overlay-bg overlay"></div>
+    <h1 class="background-text">Sergey</h1>
+    <div class="container">
+        <div class="row fullscreen">
+            <div class="banner-content col-lg-12">
+                <p th:text="${user.getProfession()}">Profession</p>
+                <h1 th:text="${user.getFirstname()} + ' ' + ${user.getLastname()}">
+                    Future <br>
+                    Architechure
+                </h1>
+                <p>
+                    <span>Возраст: </span><span th:text="${user.getAge()}"></span>
+                    <span>Email: </span><span th:text="${user.getEmail()}"></span>
+                    <span>Website: </span><span th:text="${user.getWebsite()}"></span>
+                </p>
+<!--                <a href="#" class="primary-btn">View project</a>-->
+            </div>
+        </div>
+    </div>
+    <div class="head-bottom-meta">
+        <div class="d-flex meta-left no-padding">
+            <a href="#"><span class="fa fa-facebook-f"></span></a>
+            <a href="#"><span class="fa fa-twitter"></span></a>
+            <a href="#"><span class="fa fa-instagram"></span></a>
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+</body>
+</html>
