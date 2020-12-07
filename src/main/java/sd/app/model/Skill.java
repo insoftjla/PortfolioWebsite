@@ -25,6 +25,10 @@ public class Skill extends BaseEntity{
     @NotBlank(message = "Title may not be blank")
     private String title;
 
+    private String about;
+
+    protected String image;
+
     @ManyToMany(mappedBy = "skills")
     private Set<User> users = new HashSet<>();
 

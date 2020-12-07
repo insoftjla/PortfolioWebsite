@@ -4,24 +4,38 @@
 <body>
 
 <!-- Start About Area -->
+<!--/*@thymesVar id="user" type="sd.app.model.User"*/-->
 <section th:fragment="about" class="about-area section-gap">
     <div class="container">
+        <div class="section-title text-center">
+            <h2>Обо мне</h2>
+        </div>
+        <div>
+            <p th:text="${user.getAbout()}">
+                Hi my name is Sergey
+            </p>
+        </div>
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-7 col-md-12 about-left">
                 <img class="img-fluid" src="img/about.png" alt="">
             </div>
             <div class="col-lg-5 col-md-12 about-right">
-                <div class="section-title text-left">
-                    <h4>About Us</h4>
-                    <h2>We are world <br /> number one Company</h2>
+                <div class="mt-2">
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    <span th:text="' Возраст: ' + ${user.getAge()}"></span>
                 </div>
-                <div>
-                    <p>
-                        Face male he light it moveth darkness winged eveni seas after life every gathering is forth two kind lesser i
-                        from seas him open him From creepeth after, life is above image from replenish behold great
-                    </p>
+                <div class="mt-2">
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    <span th:text="' Телефон: ' + ${user.getPhone()}"></span>
                 </div>
-                <a href="#" class="primary-btn">Read More</a>
+                <div class="mt-2">
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    <span th:text="' Email: ' + ${user.getEmail()}"></span>
+                </div>
+                <div class="mt-2">
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    <span th:text="' Сайт: ' + ${user.getWebsite()}"></span>
+                </div>
             </div>
         </div>
     </div>

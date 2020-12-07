@@ -1391,12 +1391,12 @@ td, th {
     font-size: 14px
 }
 
-.features-area {
+.main-skills-area {
     padding-bottom: 80px
 }
 
 @media (max-width: 991px) {
-    .features-area {
+    .main-skills-area {
         padding-bottom: 20px
     }
 }
@@ -4162,4 +4162,9 @@ h1, h2, h3, h4, h5, h6 {
         text-align: left;
         margin-top: 20px
     }
+}
+
+.skill-image {
+    width: 200px;
+    margin-bottom: ;
 }

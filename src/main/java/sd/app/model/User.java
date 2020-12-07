@@ -8,10 +8,8 @@ import javax.validation.constraints.Pattern;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author Sergey Inyakin
@@ -61,11 +59,20 @@ public class User extends BaseEntity{
     @NotBlank(message = "Website may not be blank")
     private String website;
 
+    @Column(columnDefinition = "TEXT")
+    private String about;
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "user_skill",
     joinColumns = @JoinColumn(name = "user_id"),
     inverseJoinColumns = @JoinColumn(name = "skill_id"))
     private Set<Skill> skills = new HashSet<>();
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "user_main_skills",
+    joinColumns = @JoinColumn(name = "user_id"),
+    inverseJoinColumns = @JoinColumn(name = "skill_id"))
+    private Set<Skill> mainSkills = new HashSet<>();
 
     public void addSkill(Skill skill){
         skills.add(skill);
