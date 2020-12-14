@@ -10,11 +10,11 @@
     </div>
     <div class="container">
         <div class="row feature_inner">
-            <div th:each="skill : ${user.getMainSkills()}" class="col-md-6">
+            <div th:each="skill : ${user?.getMainSkills()}" class="col-md-6">
                 <div class="feature-item">
-                    <img class="skill-image" th:src="${skill.getImage()}">
-                    <h4 th:text="${skill.getTitle()}">Skill</h4>
-                    <p th:text="${skill.getAbout()}" >about</p>
+                    <img class="skill-image" th:src="${skill?.getImage()}">
+                    <h4 th:text="${skill?.getTitle()}">Skill</h4>
+                    <p th:text="${skill?.getAbout()}" >about</p>
                 </div>
             </div>
         </div>

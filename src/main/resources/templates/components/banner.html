@@ -7,18 +7,18 @@
 <section th:fragment="banner" class="home-banner-area relative" id="home" data-parallax="scroll"
          data-image-src="img/header-bg.jpg">
     <div class="overlay-bg overlay"></div>
-    <h1 class="background-text">Sergey</h1>
+    <h1 class="background-text" th:text="${user?.getFirstname()}">insoftjla</h1>
     <div class="container">
         <div class="row fullscreen">
             <div class="banner-content col-lg-12">
-                <p th:text="${user.getProfession()}">Profession</p>
-                <h1 th:text="|${user.getFirstname()} ${user.getLastname()}|">
+                <p th:text="${user?.getProfession()}">Profession</p>
+                <h1 th:text="|${user?.getFirstname()} ${user?.getLastname()}|">
                     Firstname Lastname
                 </h1>
                 <p>
                    <span class="p-1 mr-3 bg-light text-dark"
-                         th:each="skill : ${user.getSkills()}"
-                         th:text="${skill.getTitle()}">
+                         th:each="skill : ${user?.getSkills()}"
+                         th:text="${skill?.getTitle()}">
                    </span>
                 </p>
             </div>
@@ -26,9 +26,9 @@
     </div>
     <div class="head-bottom-meta">
         <div class="d-flex meta-left no-padding">
-            <a href="#"><span class="fa fa-telegram"></span></a>
-            <a href="#"><span class="fa fa-vk"></span></a>
-            <a href="#"><span class="fa fa-github"></span></a>
+            <a href="https://t.me/insoftjla"><span class="fa fa-telegram"></span></a>
+            <a href="https://vk.com/insoft"><span class="fa fa-vk"></span></a>
+            <a href="https://github.com/insoftjla/"><span class="fa fa-github"></span></a>
         </div>
     </div>
 </section>

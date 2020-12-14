@@ -11,7 +11,7 @@
             <h2>Обо мне</h2>
         </div>
         <div>
-            <p th:text="${user.getAbout()}">
+            <p th:text="${user?.getAbout()}">
                 Hi my name is Sergey
             </p>
         </div>
@@ -22,19 +22,19 @@
             <div class="col-lg-5 col-md-12 about-right">
                 <div class="mt-2">
                     <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                    <span th:text="' Возраст: ' + ${user.getAge()}"></span>
+                    <span th:text="' Возраст: ' + ${user?.getAge()}"></span>
                 </div>
                 <div class="mt-2">
                     <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                    <span th:text="' Телефон: ' + ${user.getPhone()}"></span>
+                    <span th:text="' Телефон: ' + ${user?.getPhone()}"></span>
                 </div>
                 <div class="mt-2">
                     <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                    <span th:text="' Email: ' + ${user.getEmail()}"></span>
+                    <span th:text="' Email: ' + ${user?.getEmail()}"></span>
                 </div>
                 <div class="mt-2">
                     <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                    <span th:text="' Сайт: ' + ${user.getWebsite()}"></span>
+                    <span th:text="' Сайт: ' + ${user?.getWebsite()}"></span>
                 </div>
             </div>
         </div>
