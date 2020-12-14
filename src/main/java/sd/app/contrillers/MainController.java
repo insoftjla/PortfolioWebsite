@@ -1,10 +1,14 @@
 package sd.app.contrillers;
 
 import lombok.AllArgsConstructor;
+import org.dom4j.rule.Mode;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import sd.app.model.User;
 import sd.app.sevices.UserService;
+
+import java.util.Optional;
 
 /**
  * @author Sergey Inyakin
@@ -18,7 +22,8 @@ public class MainController {
 
     @GetMapping("/")
     public String about(Model model) {
-        model.addAttribute("user", userService.get(1));
+        Optional<User> userOptional = userService.get(1);
+        userOptional.ifPresent(user -> model.addAttribute("user", user));
         return "index";
     }
 }

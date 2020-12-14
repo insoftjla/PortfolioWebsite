@@ -74,6 +74,12 @@ public class User extends BaseEntity{
     inverseJoinColumns = @JoinColumn(name = "skill_id"))
     private Set<Skill> mainSkills = new HashSet<>();
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "user_project",
+    joinColumns = @JoinColumn(name = "user_id"),
+    inverseJoinColumns = @JoinColumn(name = "project_id"))
+    private Set<Project> projects = new HashSet<>();
+
     public void addSkill(Skill skill){
         skills.add(skill);
         skill.getUsers().add(this);

@@ -1,10 +1,11 @@
 package sd.app.sevices;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sd.app.model.User;
 import sd.app.repositoryes.UserRepository;
+
+import java.util.Optional;
 
 /**
  * @author Sergey Inyakin
@@ -17,8 +18,8 @@ public class UserServiceImpl implements UserService{
     private final UserRepository userRepository;
 
     @Override
-    public User get(long id) {
-        return userRepository.getOne(id);
+    public Optional<User> get(long id) {
+        return userRepository.findById(id);
     }
 
     @Override
