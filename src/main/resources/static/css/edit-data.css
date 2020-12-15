@@ -1,0 +1,25 @@
+.editor {
+    display: none;
+}
+
+.editor-input {
+    outline: none;
+    border-width: 0 0 2px ;
+    background: rgba(255,255,255,0);
+}
+
+.editor-button {
+    border: 0 solid;
+}
+
+.editor-button:hover {
+    background: rgba(255,255,255,0);
+}
+
+.editor:hover {
+    border-color: rgba(80, 130, 180, 0.5);
+}
+
+.editBlock:hover {
+    box-shadow: inset 0 0 10px rgba(125, 125, 125, 0.8);
+}

@@ -84,7 +84,7 @@ $(document).ready(function () {
         768: {
             items: 4,
         },
-        768: {
+        800: {
             items: 5,
         }
     }
