@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import sd.app.model.Project;
 import sd.app.model.User;
 import sd.app.sevices.UserService;
 
@@ -23,7 +24,10 @@ public class MainController {
     @GetMapping
     public String about(Model model) {
         Optional<User> userOptional = userService.get(1);
-        userOptional.ifPresent(user -> model.addAttribute("user", user));
+        userOptional.ifPresent(user -> {
+            model.addAttribute("user", user);
+            model.addAttribute("project", new Project());
+        });
         return "index";
     }
 

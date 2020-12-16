@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<!-- Start Edit Project Area -->
+<div th:fragment="addProjectForm">
+    <!--/*@thymesVar id="project" type="sd.app.model.Project"*/-->
+    <!--/*@thymesVar id="user" type="sd.app.model.User"*/-->
+    <form th:action="@{/projects}" th:object="${project}" th:method="POST">
+        <input type="text" th:field="*{title}" th:placeholder="Title">
+        <input type="text" th:field="*{about}" th:placeholder="About">
+        <input type="submit" th:value="save">
+    </form>
+</div>
+
+<!-- End Edit Project Area -->
+
+</body>
+</html>
