@@ -8,6 +8,7 @@ import sd.app.model.Project;
 import sd.app.model.User;
 import sd.app.sevices.UserService;
 
+import java.security.Principal;
 import java.util.Optional;
 
 /**
@@ -22,19 +23,27 @@ public class MainController {
     private final UserService userService;
 
     @GetMapping
-    public String about(Model model) {
-        Optional<User> userOptional = userService.get(1);
+    public String about(Model model, Principal principal) {
+
+        if (principal == null) return "redirect:/login";
+
+        Optional<User> userOptional = userService.findByUsername(principal.getName());
         userOptional.ifPresent(user -> {
             model.addAttribute("user", user);
             model.addAttribute("project", new Project());
         });
+
         return "index";
     }
 
     @PostMapping("/profile")
     public String aboutSave(
-            @ModelAttribute User user){
-        Optional<User> userOptional = userService.get(1);
+            @ModelAttribute User user,
+            Principal principal){
+
+        if (principal == null) return "redirect:/login";
+
+        Optional<User> userOptional = userService.findByUsername(principal.getName());
         userOptional.ifPresent(userOld -> {
             if (user.getAbout() != null) userOld.setAbout(user.getAbout());
             if (user.getBirthday() != null) userOld.setBirthday(user.getBirthday());
@@ -43,6 +52,7 @@ public class MainController {
             if (user.getWebsite() != null) userOld.setWebsite(user.getWebsite());
             userService.save(userOld);
         });
+
     return "redirect:/";
     }
 }

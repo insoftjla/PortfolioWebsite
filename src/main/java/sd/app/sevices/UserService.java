@@ -9,6 +9,8 @@ import java.util.Optional;
  */
 
 public interface UserService {
-    Optional<User> get(long id);
+    Optional<User> findById(long id);
+    Optional<User> findByUsername(String username);
     User save(User user);
+    User addUser(User user);
 }
