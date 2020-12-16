@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<!-- Start Project Area -->
+<!--/*@thymesVar id="user" type="sd.app.model.User"*/-->
+<section th:fragment="projects" class="project-area section-gap-top editBlock" id="project">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-8">
+                <div class="section-title text-center">
+                    <h2>Мои проекты</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="filters-content">
+            <div class="row grid">
+                <div class="col-lg-4 col-md-6 grid-sizer"></div>
+                <div class="col-lg-4 col-md-6 grid-item all following"
+                        data-wow-delay="0s"
+                        th:each="project : ${user?.getProjects()}">
+                    <div class="single-project">
+                        <div class="relative">
+                            <div class="thumb">
+                                <img class="image img-fluid"
+                                     src="public/img/projects/p1.png"
+                                     th:src="${project?.getImages()}" alt="">
+                            </div>
+                            <div class="middle">
+                                <h4 th:text="${project?.getTitle()}">Title</h4>
+                                <div class="cat" th:text="${project?.getAbout()}">About</div>
+                            </div>
+                            <a class="overlay" href="#"></a>
+                        </div>
+                    </div>
+                </div>
+                <div th:replace="components/edit-projects :: addProjectForm"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Project Area -->
+
+</body>
+</html>
